@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "zinobe"
+    }
+  },
+  "defaultProject": "zinobe",
+  "cli": {
+    "analytics": false
+  }
 }
