@@ -7,9 +7,13 @@ import { BalanceService } from 'src/app/services/balance.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  options = ['inicio', 'prestamos', 'solicitar'];
+  options = [
+    { title: 'inicio', path: '/' },
+    { title: 'prestamos', path: '/prestamo' },
+    { title: 'solicitar', path: '/prestamo/solicitar' },
+  ];
 
-  constructor(private observerService: BalanceService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

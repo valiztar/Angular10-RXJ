@@ -1,0 +1,23 @@
+@import "src/theme.scss";
+
+.card {
+  background-color: $primary-background;
+  padding: 2rem;
+  &:hover {
+    border-color: $primary-color;
+    box-shadow: 0 1px 1px $primary-background inset, 0 0 8px $primary-color;
+    outline: 0 none;
+  }
+}
+
+.table {
+  background-color: $primary-background;
+  thead {
+    th {
+      color: $primary-color;
+    }
+  }
+  *td {
+    color: white;
+  }
+}

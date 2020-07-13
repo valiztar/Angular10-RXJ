@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-6 offset-sm-3 form">
+      <div class="card">
+        <div class="card-header text-center">
+          <span class="display-5 text-primary">Solicitar Prestamo</span>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="solicitudForm" (ngSubmit)="onSubmit()">
+            <div class="row" formGroupName="deudor">
+              <div class="col-6">
+                <label for="nombre">Nombre </label>
+                <input
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  tabindex="1"
+                  formControlName="nombre"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': deudor.nombre.touched && deudor.nombre.errors
+                  }"
+                />
+              </div>
+              <div class="col-6">
+                <label for="cedula">Cedula </label>
+                <input
+                  type="text"
+                  name="cedula"
+                  id="cedula"
+                  tabindex="3"
+                  formControlName="cedula"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': deudor.cedula.touched && deudor.cedula.errors
+                  }"
+                />
+              </div>
+              <div class="col-md-12">
+                <label for="correo">Correo </label>
+                <input
+                  type="email"
+                  name="correo"
+                  id="correo"
+                  tabindex="2"
+                  formControlName="correo"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': deudor.correo.touched && deudor.correo.errors
+                  }"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <app-field-value
+                  class="w-100"
+                  (valueSelected)="valueSelected($event)"
+                ></app-field-value>
+              </div>
+              <div class="col-12">
+                <label for="fechaPagar">Fecha de Pago (Opcional) </label>
+                <div class="col-12 col-sm-4 input-group">
+                  <input
+                    type="text"
+                    placeholder="Fecha de pago"
+                    class="form-control"
+                    bsDatepicker
+                    name="fechaPagar"
+                    formControlName="fechaPagar"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 text-right">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  [disabled]="!solicitudForm.valid"
+                >
+                  Solicitar
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

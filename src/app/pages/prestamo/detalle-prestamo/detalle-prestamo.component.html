@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-sm-6 offset-sm-3 form">
+      <div class="card">
+        <div class="card-body" *ngIf="prestamo">
+          <div class="row">
+            <div class="col-6">
+              <label for="nombre">Nombre </label>
+              <input
+                type="text"
+                name="nombre"
+                tabindex="1"
+                class="form-control"
+                readonly
+                [value]="prestamo?.deudor.nombre"
+              />
+            </div>
+            <div class="col-6">
+              <label for="cedula">Cedula </label>
+              <input
+                type="text"
+                name="cedula"
+                tabindex="2"
+                class="form-control"
+                readonly
+                [value]="prestamo?.deudor.cedula"
+              />
+            </div>
+            <div class="col-md-12">
+              <label for="correo">Correo </label>
+              <input
+                type="email"
+                name="correo"
+                id="correo"
+                tabindex="3"
+                class="form-control"
+                readonly
+                [value]="prestamo?.deudor.correo"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <label for="valor">Valor </label>
+              <input
+                type="text"
+                name="valor"
+                tabindex="4"
+                class="form-control"
+                readonly
+                [value]="prestamo?.valor | currency"
+              />
+            </div>
+            <div class="col-12">
+              <label for="fechaPagar">Fecha de Pago </label>
+              <input
+                type="text"
+                class="form-control"
+                name="fechaPagar"
+                readonly
+                [value]="prestamo?.fechaPagar?.seconds | date"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 text-center mt-5">
+              <a class="btn btn-primary" [routerLink]="'/prestamo'"> Volver</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

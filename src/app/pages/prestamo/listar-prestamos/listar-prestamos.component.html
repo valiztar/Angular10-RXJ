@@ -1,0 +1,127 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-3" *ngIf="pagados">
+      <div class="card">
+        <div class="card-header text-center">
+          <span class="display-5 text-primary">Prestamos Pagados</span>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Monto Solicitado</th>
+                <th scope="col">Acuerdo de Pago</th>
+                <th scope="col">Ver</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prestamo of pagados; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ prestamo.deudor.nombre }}</td>
+                <td>{{ prestamo.valor | currency }}</td>
+                <td>
+                  {{ prestamo?.fechaPagar?.seconds | date }}
+                </td>
+                <td>
+                  <button
+                    class="btn btn-primary btn-sm"
+                    (click)="ver(prestamo)"
+                  >
+                    <i class="far fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <span class="display-5 text-primary">Aprovados</span>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Monto Solicitado</th>
+                <th scope="col">Acuerdo de Pago</th>
+                <th scope="col">Pagar</th>
+                <th scope="col">Ver</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prestamo of aprovados; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ prestamo.deudor.nombre }}</td>
+                <td>{{ prestamo.valor | currency }}</td>
+                <td>
+                  {{ prestamo?.fechaPagar?.seconds | date }}
+                </td>
+                <td>
+                  <button
+                    class="btn btn-success btn-sm"
+                    (click)="pagar(prestamo)"
+                  >
+                    Pagar
+                  </button>
+                </td>
+                <td>
+                  <button
+                    class="btn btn-primary btn-sm"
+                    (click)="ver(prestamo)"
+                  >
+                    <i class="far fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header text-center">
+          <span class="display-5 text-primary">Rechazados</span>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead class="">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Monto Solicitado</th>
+                <th scope="col">Ver</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prestamo of rechazados; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ prestamo.deudor.nombre }}</td>
+                <td>{{ prestamo.deudor.cedula }}</td>
+                <td>{{ prestamo.deudor.correo }}</td>
+                <td>{{ prestamo.valor | currency }}</td>
+                <td>
+                  <button
+                    class="btn btn-primary btn-sm"
+                    (click)="ver(prestamo)"
+                  >
+                    <i class="far fa-eye"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

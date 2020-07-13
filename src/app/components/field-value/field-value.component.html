@@ -1,0 +1,17 @@
+<label for="valor">Valor del Prestamo</label>
+<br />
+<span class="w-25">Min $100 </span>
+<mat-slider
+  class="w-50"
+  [min]="min"
+  [max]="max"
+  step="500"
+  [(value)]="value"
+  (change)="change()"
+></mat-slider>
+<span class="w-25"> Max {{ max | currency }}</span>
+<div style="margin-bottom: 1rem;">
+  <label>
+    Valor seleccionado: <span class="text-primary">{{ value | currency }}</span>
+  </label>
+</div>
